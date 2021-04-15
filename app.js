@@ -12,6 +12,7 @@ const app = express();
 // bodyParser.urlencoded({extended: false});
 // This is built into express now, so we just use what is below
 app.use(express.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
