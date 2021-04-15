@@ -16,7 +16,7 @@ app.use(express.urlencoded({extended: false}));
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
-// Works as a catch all since it's the last routing call
+// Works as a catch all since all other routes are inserted above
 app.use((req, res, next) => {
     res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
 });
