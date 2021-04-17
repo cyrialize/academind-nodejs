@@ -7,6 +7,14 @@ const shopRoutes = require('./routes/shop');
 
 const app = express();
 
+// app.set() allows you to set a global configuration value in express
+// app.get() gets the value that you saved
+// This sets the view engine we'll be using with express
+// We can also tell express where our views folder is with app.set('views', ''); but in this case 
+// our views folder is already in the default spot that express looks in
+app.set('view engine', 'pug');
+app.set('views', 'views');
+
 // This was previously the following:
 // const bodyParser = require('body-parser');
 // bodyParser.urlencoded({extended: false});
