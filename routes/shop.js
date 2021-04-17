@@ -13,7 +13,9 @@ router.get('/', (req, res, next) => {
     // res.sendFile(path.join(rootDir, 'views', 'shop.html'));
     // 
     // res.render() uses the templating engine defined by app.set('view_engine', '');
-    res.render('shop.pug');
+    // The second argument of the render function is a JS object with key->value pairs to pass data into the view
+    const products = adminData.products;
+    res.render('shop', {prods: products, docTitle: 'Shop'});
 });
 
 module.exports = router;
