@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
     // res.render() uses the templating engine defined by app.set('view_engine', '');
     // The second argument of the render function is a JS object with key->value pairs to pass data into the view
     const products = adminData.products;
-    res.render('shop', {prods: products, docTitle: 'Shop'});
+    res.render('shop', {prods: products, pageTitle: 'Shop', path: '/'});
 });
 
 module.exports = router;
