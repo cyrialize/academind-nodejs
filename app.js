@@ -14,9 +14,10 @@ const app = express();
 // We can also tell express where our views folder is with app.set('views', ''); but in this case 
 // our views folder is already in the default spot that express looks in
 // app.engine('hbs', expressHbs()) - registers a view engine within express
-// name chosen becomes extension name(e.g. 404.hbs)
-app.engine('hbs', expressHbs({layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs'})); 
-app.set('view engine', 'hbs');
+// name chosen becomes extension name (e.g. 404.hbs)
+// app.engine('hbs', expressHbs({layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs'})); 
+
+app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 // This was previously the following:
