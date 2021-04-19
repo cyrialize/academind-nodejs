@@ -1,6 +1,7 @@
 const path = require('path');
 
 const express = require('express');
+const expressHbs = require('express-handlebars');
 
 const adminData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
@@ -9,10 +10,13 @@ const app = express();
 
 // app.set() allows you to set a global configuration value in express
 // app.get() gets the value that you saved
-// This sets the view engine we'll be using with express
+// app.set('view engine', '') sets the view engine we'll be using with express
 // We can also tell express where our views folder is with app.set('views', ''); but in this case 
 // our views folder is already in the default spot that express looks in
-app.set('view engine', 'pug');
+// app.engine('hbs', expressHbs()) - registers a view engine within express
+// name chosen becomes file type (e.g. 404.hbs)
+app.engine('hbs', expressHbs()); 
+app.set('view engine', 'hbs');
 app.set('views', 'views');
 
 // This was previously the following:
