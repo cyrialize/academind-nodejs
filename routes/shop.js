@@ -15,7 +15,14 @@ router.get('/', (req, res, next) => {
     // res.render() uses the templating engine defined by app.set('view_engine', '');
     // The second argument of the render function is a JS object with key->value pairs to pass data into the view
     const products = adminData.products;
-    res.render('shop', {prods: products, pageTitle: 'Shop', path: '/', hasProducts: products.length > 0});
+    res.render('shop', {
+        prods: products, 
+        pageTitle: 'Shop', 
+        path: '/', 
+        hasProducts: products.length > 0,
+        activeShop: true,
+        productCSS: true
+    });
 });
 
 module.exports = router;
