@@ -18,18 +18,19 @@ exports.postAddProduct = (req, res, next) => {
 
 exports.getProducts = (req, res, next) => {
 
-    const products = Product.fetchAll();
-    // Previous way of doing it, sending an html file as opposed to a template
-    // res.sendFile(path.join(rootDir, 'views', 'shop.html'));
-    // 
-    // res.render() uses the templating engine defined by app.set('view_engine', '');
-    // The second argument of the render function is a JS object with key->value pairs to pass data into the view
-    res.render('shop', {
-        prods: products, 
-        pageTitle: 'Shop', 
-        path: '/', 
-        hasProducts: products.length > 0,
-        activeShop: true,
-        productCSS: true
+    const products = Product.fetchAll((products) => {
+        // Previous way of doing it, sending an html file as opposed to a template
+        // res.sendFile(path.join(rootDir, 'views', 'shop.html'));
+        // 
+        // res.render() uses the templating engine defined by app.set('view_engine', '');
+        // The second argument of the render function is a JS object with key->value pairs to pass data into the view
+        res.render('shop', {
+            prods: products, 
+            pageTitle: 'Shop', 
+            path: '/', 
+            hasProducts: products.length > 0,
+            activeShop: true,
+            productCSS: true
+        });
     });
 };

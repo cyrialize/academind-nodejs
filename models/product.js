@@ -27,7 +27,10 @@ module.exports = class Product {
         });
     }
 
-    static fetchAll() {
+    // A callback function is used here as readFile is async
+    // callback function will be called once readFile is done
+    // If there was no error function then undefined is returned as readFile isn't completed
+    static fetchAll(cb) {
         const p = path.join(
             path.dirname(require.main.filename), 
             'data', 
@@ -35,9 +38,9 @@ module.exports = class Product {
         );
         fs.readFile(p, (err, fileContent) => {
             if (err) {
-                return [];
+                cb([]);
             }
-            return JSON.parse(fileContent);
+            cb(JSON.parse(fileContent));
         });
     }
 };
