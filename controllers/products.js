@@ -1,7 +1,7 @@
 const Product = require('../models/product');
 
 exports.getAddProduct = (req, res, next) => {
-    res.render('add-product', {
+    res.render('admin/add-product', {
         pageTitle: 'Add Product', 
         path: '/admin/add-product', 
         formsCSS: true, 
@@ -24,7 +24,7 @@ exports.getProducts = (req, res, next) => {
         // 
         // res.render() uses the templating engine defined by app.set('view_engine', '');
         // The second argument of the render function is a JS object with key->value pairs to pass data into the view
-        res.render('shop', {
+        res.render('shop/product-list', {
             prods: products, 
             pageTitle: 'Shop', 
             path: '/', 
