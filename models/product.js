@@ -27,6 +27,7 @@ module.exports = class Product {
     }
 
     save() {
+        this.id = Math.random().toString();
         // Use arrow functions so that this refers to the class
         getProductsFromFile(products => {
             products.push(this);
