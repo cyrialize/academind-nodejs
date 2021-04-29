@@ -16,6 +16,13 @@ exports.getProducts = (req, res, next) => {
     });
 };
 
+// productId matches the name given in the dynamic route, :productId
+exports.getProduct = (req, res, next) => {
+    const prodId = req.params.productId;
+    console.log(prodId);
+    res.redirect('/');
+};
+
 exports.getIndex = (req, res, next) => {
     Product.fetchAll((products) => {
         res.render('shop/index', {
