@@ -49,6 +49,17 @@ module.exports = class Product {
         });
     }
 
+    static deleteById(id) {
+        getProductsFromFile(products => {
+            const updatedProducts = products.filter(prod => prod.id !== id);
+            fs.writeFile(p, JSON.stringify(updatedProducts), err => {
+                if (!err) {
+                    // Remove from cart
+                }
+            });
+        });
+    }
+
     // A callback function is used here as readFile is async
     // callback function will be called once readFile is done
     // If there was no error function then undefined is returned as readFile isn't completed
